@@ -1,0 +1,24 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+	if ($_SESSION['user_type'] == 'Job_Viewer')
+		header("Location: Job_Viewer_home.php");
+	else
+		header("Location: Job_Recruiter_home.php");
+	exit;
+}
+?>
+<html>
+<body>
+	<form action = "login.php" method = "post">
+		Email:<input type="text" name = "email"><br>
+		Password:<input type="password" name = "psw"><br>
+		<input type = "radio" name = "userType" id = "Job_Viewer" value = "Job_Viewer"/>
+		<label for = "Job_Viewer">Job Viewer</label> <br>
+		<input type = "radio" name = "userType" id = "Job_Recruiter" value = "Job_Recruiter"/>
+		<label for = "Job_Recruiter"> Job_Recruiter</label> <br>
+		<input type="submit">
+	</form>
+
+</body>
+</html>
